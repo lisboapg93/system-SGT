@@ -5,12 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CreateAccount;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home');
 });
 
 Route::get('/createaccount', [CreateAccount::class, 'index'])->name('createaccount');
+Route::post('/register', [UserController::class, 'create'])->name('register');
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

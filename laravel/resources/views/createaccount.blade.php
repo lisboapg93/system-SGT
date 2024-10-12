@@ -18,7 +18,8 @@
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="card p-4" style="width: 100%; max-width: 500px; border-radius: 30px; background-color: #EAECEE;">
             <h3 class="card-title text-center mb-4">Cadastrar Conta</h3>
-            <form>
+            <form action="{{ route('register') }}" method="GET">
+            @csrf
                 <div class="form-group">
                     <label for="name">Nome</label>
                     <input type="text" class="form-control" id="name" placeholder="Digite seu nome" required>
@@ -31,7 +32,7 @@
                     <label for="password">Senha</label>
                     <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
                 </div>
-                <button type="submit" class="btn btn-success btn-block">Criar Conta</button>
+                <a href="{{ route('register') }}"  class="btn btn-success btn-block">Criar Conta</a>
                 <a href="{{ route('home') }}" class="btn btn-outline-secondary btn-block">Voltar</a>
             </form>
         </div>

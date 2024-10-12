@@ -6,20 +6,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class CreateAccount extends Controller
+class UserController extends Controller
 {
-    public function index()
-    {
-        return view('createaccount');
-    }
-
     public function create(Request $request)
     {
         // Valida os dados de entrada
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string|min:5',
         ]);
 
         // Cria um novo usuário
