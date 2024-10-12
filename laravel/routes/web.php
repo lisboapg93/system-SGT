@@ -11,8 +11,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/createaccount', [CreateAccount::class, 'index'])->name('createaccount');
-Route::post('/register', [UserController::class, 'create'])->name('register');
+Route::get('/createaccount', [CreateAccount::class, 'create'])->name('users.create');
+Route::post('/register', [UserController::class, 'store'])->name('users.store');
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

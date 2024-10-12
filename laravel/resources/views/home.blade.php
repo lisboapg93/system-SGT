@@ -29,7 +29,7 @@
                     <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
                 </div>
                 <a href="{{ route('tasks') }}" class="btn btn-success btn-block">Entrar</a>
-                <a href="{{ route('createaccount') }}" class="btn btn-info btn-block">Criar Cadastro</a>
+                <a href="{{ route('users.create') }}" class="btn btn-info btn-block">Criar Cadastro</a>
             </form>
         </div>
     </div>

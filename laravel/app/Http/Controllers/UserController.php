@@ -10,12 +10,22 @@ class UserController extends Controller
 {
     public function create(Request $request)
     {
+        // Redireciona ou retorna uma resposta
+        return view('createaccount');
+    }
+
+    public function store(Request $request)
+    {        
         // Valida os dados de entrada
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:5',
         ]);
+
+        // if ($validator->fails()) {
+        //     return redirect()->back()->withErrors($validator)->withInput();
+        // }
 
         // Cria um novo usuário
         User::create([
@@ -24,7 +34,7 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')), // Hash para a senha
         ]);
 
-        // Redireciona ou retorna uma resposta
-        return redirect()->route('home')->with('success', 'Conta criada com sucesso!');
+        return redirect()->route('home')->with('success','');
+
     }
 }
