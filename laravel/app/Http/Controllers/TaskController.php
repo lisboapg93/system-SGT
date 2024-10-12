@@ -13,47 +13,53 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
     public function index()
-    {
-        $tasks = Task::where('user_id', Auth::id())->get();
-        return view('task', ['tasks'=>$tasks]);
-    }
+{
+    $tasks = Task::where('user_id', Auth::id())->get();
+    return view('task', ['tasks' => $tasks]);
+}
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'due_date' => 'required|date',
-        ]);
+public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'due_date' => 'required|date',
+    ]);
 
-        Task::create([
-            'user_id' => Auth::id(),
-            'title' => $request->title,
-            'description' => $request->description,
-            'due_date' => $request->due_date,
-            'is_completed' => false,
-        ]);
+    Task::create([
+        'user_id' => Auth::id(),
+        'title' => $request->title,
+        'description' => $request->description,
+        'due_date' => $request->due_date,
+        'is_completed' => false,
+    ]);
 
-        return redirect()->route('task');
-    }
+    return redirect()->route('task')->with('success', 'Tarefa criada com sucesso!');
+}
 
-    public function update(Request $request, $id)
-    {
-        $task = Task::where('user_id', Auth::id())->findOrFail($id);
-        $task->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'due_date' => $request->due_date,
-            'is_completed' => $request->is_completed,
-        ]);
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'due_date' => 'required|date',
+    ]);
 
-        return redirect()->route('task');
-    }
+    $task = Task::where('user_id', Auth::id())->findOrFail($id);
+    $task->update([
+        'title' => $request->title,
+        'description' => $request->description,
+        'due_date' => $request->due_date,
+        'is_completed' => $request->has('is_completed'),
+    ]);
 
-    public function destroy($id)
-    {
-        $task = Task::where('user_id', Auth::id())->findOrFail($id);
-        $task->delete();
+    return redirect()->route('task')->with('success', 'Tarefa atualizada com sucesso!');
+}
 
-        return redirect()->route('task');
-    }
+public function destroy($id)
+{
+    $task = Task::where('user_id', Auth::id())->findOrFail($id);
+    $task->delete();
+
+    return redirect()->route('task')->with('success', 'Tarefa excluída com sucesso!');
+}
+
 }

@@ -32,7 +32,7 @@
                     <label for="password">Senha</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
                 </div>
-                <button type="submit" class="btn btn-outline-secondary btn-block">Criar Usuário</button>
+                <button type="submit" class="btn btn-success btn-block">Criar Usuário</button>
                 <a href="{{ route('home') }}" class="btn btn-outline-secondary btn-block">Voltar</a>
             </form>
         </div>
