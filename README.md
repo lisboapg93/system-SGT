@@ -35,7 +35,7 @@ php artisan migrate
 php artisan serve --host=0.0.0.0 --port=8000
 ```
 
-6 - Acessar a página do projeto
+6 - Acessar a página do projeto com a URL:
 ```sh
-[http://localhost:8000/home](http://localhost:800/home)
+[http://localhost:8000/home](http://localhost:8000/home)
 ```
