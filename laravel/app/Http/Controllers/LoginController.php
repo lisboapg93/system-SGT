@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    // Método para exibir o formulário de login
     public function showLoginForm()
     {
-        return view('tasks'); // Assumindo que você tenha uma view chamada 'login'
+        return view('tasks');
     }
 
     // Método para processar o login
@@ -28,19 +27,19 @@ class LoginController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Tentativa de autenticação
+        
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
-            // Redireciona para a rota 'tasks.index' se o login for bem-sucedido
+            
             return redirect()->route('tasks.index')->with('success', 'Login realizado com sucesso!');
         }
 
-        // Retorna com erro caso as credenciais sejam inválidas
+        
         return back()->withErrors([
-            'name' => 'Nome ou senha incorreto.',
+            'name' => 'Nome ou senha incorretos.',
         ]);
     }
 
-    // Método para listar tarefas (exemplo de como o método index poderia ser estruturado)
+    
     public function index()
     {
         $tasks = Task::where('user_id', Auth::id())->get();

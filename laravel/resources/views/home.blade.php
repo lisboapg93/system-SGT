@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <header>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary d-flex justify-content-center" >
         <a class="navbar-brand text-center" href="# ">Sistema Gestão de Tarefas</a>
     </nav>

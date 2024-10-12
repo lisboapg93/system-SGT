@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuário</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <header>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary d-flex justify-content-center" >
         <a class="navbar-brand text-center" href="# ">Sistema Gestão de Tarefas</a>
     </nav>
 </header>
 <body>
-    <!-- Container para o formulário -->
+    <!-- Container-->
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="card p-4" style="width: 100%; max-width: 500px; border-radius: 30px; background-color: #EAECEE;">
             <h3 class="card-title text-center mb-4">Cadastrar Conta</h3>

@@ -9,7 +9,7 @@ class Task extends Model
 {
     use HasFactory;
 
-    // Definindo os campos que podem ser atribuídos em massa
+    
     protected $fillable = [
         'user_id', 
         'title', 
@@ -18,7 +18,6 @@ class Task extends Model
         'is_completed'
     ];
 
-    // Definindo a relação com o modelo User
     public function user()
     {
         return $this->belongsTo(User::class);
