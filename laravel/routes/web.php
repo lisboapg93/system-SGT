@@ -2,17 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\CreateAccount;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/createaccount', [CreateAccount::class, 'index'])->name('createaccount');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/tarefas', [TaskController::class, 'index'])->name('tasks.index');
+    Route::post('/tarefas', [TaskController::class, 'store'])->name('tasks.store');
+    Route::put('/tarefas/{id}', [TaskController::class, 'update'])->name('tasks.update');
+    Route::delete('/tarefas/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
