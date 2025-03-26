@@ -1,5 +1,13 @@
 # Sistema de Gestão de Tarefas
 
+### Tecnologias:
+- PHP
+- Laravel
+- Docker
+- Mysql
+
+
+
 ## Visão geral do projeto
 O projeto tem o intuito de ser utilizado para gestão de tarefas, com criação, edição e deleção de itens criado pelo usuário e estas tarefas pode ser classificadas como concluidas pelo usuario que está utlizando.
 
